@@ -15,11 +15,15 @@
         android:id="@+id/txt_namaMakanan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
         android:text="Nama Makanan"
         android:textStyle="bold" />
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:background="@drawable/button_shape"
+        />
     <TextView
         android:id="@+id/txt_bahanBahan"
         android:layout_width="match_parent"
@@ -30,6 +34,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:background="@drawable/button_shape"
         />
     <TextView
         android:id="@+id/txt_caraMemasak"
@@ -41,10 +47,13 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:backgroundTint="@color/white"
+        android:background="@drawable/button_shape"
         />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/button_shape"
         android:text="EDIT"
        />
 

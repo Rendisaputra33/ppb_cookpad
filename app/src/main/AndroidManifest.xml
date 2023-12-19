@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Ta_ppb1"
         tools:targetApi="31">
         <activity
-            android:name=".tambahresep"
+            android:name=".AddRecipe"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

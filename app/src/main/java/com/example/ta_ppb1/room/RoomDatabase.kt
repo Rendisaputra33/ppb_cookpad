@@ -5,11 +5,14 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.ta_ppb1.entity.Recipe
+import com.example.ta_ppb1.entity.User
 import com.example.ta_ppb1.repository.RecipeRepository
+import com.example.ta_ppb1.repository.UserRepository
 
-@Database(entities = [Recipe::class], version = 1)
+@Database(entities = [User::class, Recipe::class], version = 1)
 abstract class RoomDatabase: RoomDatabase() {
-    abstract fun repository(): RecipeRepository
+    abstract fun recipeRepository(): RecipeRepository
+    abstract fun userRepository(): UserRepository
 
     companion object {
         private val LOCK = Any()

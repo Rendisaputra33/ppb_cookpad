@@ -37,8 +37,8 @@
             android:layout_width="325dp"
             android:layout_height="135dp"
             android:layout_marginLeft="18dp"
-            android:src="@drawable/selection_band_overlay"
-            android:id="@+id/img_foto"
+            android:src="@drawable/img"
+            android:id="@+id/img_makanan"
             />
         <TextView
             android:layout_width="wrap_content"

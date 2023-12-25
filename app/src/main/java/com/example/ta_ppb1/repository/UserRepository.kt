@@ -1,6 +1,5 @@
 package com.example.ta_ppb1.repository
 
-import android.provider.ContactsContract.CommonDataKinds.Email
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query

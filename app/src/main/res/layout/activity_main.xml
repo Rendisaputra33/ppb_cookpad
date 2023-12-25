@@ -57,7 +57,7 @@
             android:backgroundTint="@color/secondaryColor"
             android:padding="18dp"
             android:inputType="text"
-            android:id="@+id/Username_input"/>
+            android:id="@+id/Username_login"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -72,8 +72,8 @@
             android:background="@drawable/rounded_corner"
             android:backgroundTint="@color/secondaryColor"
             android:padding="18dp"
-            android:inputType="text"
-            android:id="@+id/Password_input"/>
+            android:inputType="textPassword"
+            android:id="@+id/Password_login"/>
 
         <Button
             android:layout_width="match_parent"
@@ -83,7 +83,8 @@
             android:text="LOGIN"
             android:backgroundTint="@color/secondaryColor"
             android:background="@drawable/rounded_corner"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:id="@+id/button_login"/>
 
     </LinearLayout>
 

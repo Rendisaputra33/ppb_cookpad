@@ -26,53 +26,56 @@
         android:textColor="@color/secondaryColor"
         android:id="@+id/txt_judul"
         />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@id/txt_judul"
-        android:padding="20dp">
-
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:text="Foto Masakan Anda"
-            android:layout_marginStart="18dp"
+            android:layout_below="@id/txt_judul"
+            android:layout_marginLeft="15dp"
             android:textSize="22sp"
             android:fontFamily="@font/poppinsmedium"
             android:textColor="@color/secondaryColor"
             android:id="@+id/txt_foto"
             />
         <EditText
-            android:layout_width="325dp"
+            android:id="@+id/edit_foto"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginStart="25dp"
-            android:layout_below="@id/txt_judul"
+            android:layout_below="@id/txt_foto"
             android:background="@drawable/button_shape"
             android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             />
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/txt_nama"
             android:text="Nama Masakan Anda"
+            android:layout_below="@id/edit_foto"
             android:layout_marginTop="10dp"
-            android:layout_marginStart="18dp"
+            android:layout_marginLeft="15dp"
             android:textSize="22sp"
-            android:fontFamily="@font/poppinsmedium"
+            android:fontFamily= "@font/poppinsmedium"
             android:textColor="@color/secondaryColor"
             />
         <EditText
-            android:layout_width="325dp"
+            android:id="@+id/edit_nama"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginLeft="25dp"
-            android:layout_below="@id/txt_judul"
+            android:layout_below="@id/txt_nama"
             android:background="@drawable/button_shape"
             android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             />
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/txt_bahan"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Bahan-bahan"
+            android:layout_below="@id/edit_nama"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="18dp"
             android:textSize="22sp"
@@ -80,41 +83,50 @@
             android:textColor="@color/secondaryColor"
             />
         <EditText
-            android:layout_width="325dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="25dp"
-            android:layout_below="@id/txt_judul"
+            android:id="@+id/edit_bahan"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/txt_bahan"
             android:background="@drawable/button_shape"
             android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             />
         <TextView
+            android:id="@+id/txt_cara"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cara Memasak"
+            android:layout_below="@id/edit_bahan"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="18dp"
+            android:layout_marginLeft="15dp"
             android:textSize="22sp"
             android:fontFamily="@font/poppinsmedium"
             android:textColor="@color/secondaryColor"
             />
         <EditText
-            android:layout_width="325dp"
-            android:layout_height="130dp"
-            android:layout_marginLeft="25dp"
+            android:id="@+id/edit_cara"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@id/txt_cara"
             android:background="@drawable/button_shape"
             android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             />
         <Button
-            android:layout_width="325dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="15dp"
+            android:id="@+id/unggah"
+            android:layout_below="@id/edit_cara"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:background="@drawable/button_shape"
             android:text="UNGGAH"
             android:textSize="20sp"
             android:fontFamily="@font/poppinssemibold"
             android:textColor="@color/black"
-            android:layout_marginLeft="25dp"
             />
-    </LinearLayout>
 
 </RelativeLayout>

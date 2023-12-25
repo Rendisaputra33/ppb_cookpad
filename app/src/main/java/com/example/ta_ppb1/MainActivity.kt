@@ -2,9 +2,11 @@ package com.example.ta_ppb1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.ta_ppb1.constant.Action
 import com.example.ta_ppb1.databinding.ActivityMainBinding
-import com.example.ta_ppb1.room.RoomDatabase
+import com.example.ta_ppb1.room.RoomDatabases
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     /**
@@ -15,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     /**
      * instance of database
      */
-    val database by lazy { RoomDatabase(this) }
+    private val database by lazy { RoomDatabases(this) }
 
     /**
      * @param savedInstanceState instance of Bundle
@@ -24,5 +26,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_main)
+
+        binding.buttonLogin.setOnClickListener {
+            CoroutineScope(Dispatchers.IO).launch {
+                val user = database.userRepository().findByEmail(binding.UsernameLogin.text.toString())
+            }
+        }
     }
 }

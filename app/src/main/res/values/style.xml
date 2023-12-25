@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.Ta_ppb1" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Theme.Ta_ppb1" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorSecondary">@color/secondaryColor</item>
         <item name="colorAccent">@color/black</item>

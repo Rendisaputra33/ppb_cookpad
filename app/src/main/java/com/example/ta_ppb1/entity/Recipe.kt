@@ -6,7 +6,6 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "recipes")
 data class Recipe(
-    @PrimaryKey val id: Int,
     val author: Int,
     val name: String,
     val description: String,
@@ -14,4 +13,8 @@ data class Recipe(
     @ColumnInfo(name = "steps_cooking")
     val stepsCooking: String,
     @ColumnInfo(name = "image_url")
-    val imageUrl: String)
+    val imageUrl: String
+) {
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0
+}

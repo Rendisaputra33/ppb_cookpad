@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="230dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="7dp"
     android:padding="8dp"
@@ -10,11 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="20dp">
 
         <ImageView
-            android:layout_width="190dp"
-            android:layout_height="190dp"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
             android:src="@drawable/img"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
@@ -35,7 +35,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Create By Rendi"
+                android:text="Malaysia"
                 android:textSize="12dp" />
         </LinearLayout>
 

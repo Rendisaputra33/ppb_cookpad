@@ -39,6 +39,7 @@
             android:layout_marginLeft="18dp"
             android:src="@drawable/img"
             android:id="@+id/img_makanan"
+            android:layout_below="@id/txt_judul"
             android:background="@drawable/button_shape"
             />
         <TextView
@@ -55,7 +56,6 @@
             android:layout_width="325dp"
             android:layout_height="50dp"
             android:layout_marginLeft="25dp"
-            android:layout_below="@id/txt_judul"
             android:background="@drawable/button_shape"
             android:layout_marginTop="10dp"
             />

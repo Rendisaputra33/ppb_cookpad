@@ -1,15 +1,14 @@
 package com.example.ta_ppb1
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.ta_ppb1.databinding.ActivityMainBinding
+import androidx.appcompat.app.AppCompatActivity
 import com.example.ta_ppb1.databinding.ActivityTambahresepBinding
-import com.example.ta_ppb1.room.RoomDatabase
+import com.example.ta_ppb1.room.RoomDatabases
 
 class AddRecipe : AppCompatActivity() {
     private lateinit var binding: ActivityTambahresepBinding
 
-    val database by lazy{RoomDatabase(this)}
+    val database by lazy { RoomDatabases(this) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTambahresepBinding.inflate(layoutInflater)

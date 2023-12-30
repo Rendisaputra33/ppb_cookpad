@@ -1,12 +1,10 @@
 package com.example.ta_ppb1
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.ta_ppb1.databinding.ActivityMainBinding
 import com.example.ta_ppb1.room.RoomDatabases
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     /**
@@ -25,12 +23,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
 
         binding.buttonLogin.setOnClickListener {
-            CoroutineScope(Dispatchers.IO).launch {
-                val user = database.userRepository().findByEmail(binding.UsernameLogin.text.toString())
-            }
+            val intent = Intent(this, MainViewActivity::class.java)
+            startActivity(intent)
+//            CoroutineScope(Dispatchers.IO).launch {
+//                val user = database.userRepository().findByEmail(binding.UsernameLogin.text.toString())
+//            }
         }
     }
 }

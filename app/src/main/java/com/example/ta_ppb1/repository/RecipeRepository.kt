@@ -9,7 +9,7 @@ import com.example.ta_ppb1.entity.Recipe
 @Dao
 interface RecipeRepository {
     @Query("SELECT * FROM recipes")
-    fun getAll(): List<Recipe>
+    fun getAll(): Array<Recipe>
 
     @Query("SELECT * FROM recipes WHERE id IN (:userIds)")
     fun loadAllByIds(userIds: IntArray): List<Recipe>

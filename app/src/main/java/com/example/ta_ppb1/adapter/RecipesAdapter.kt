@@ -28,6 +28,13 @@ class RecipesAdapter(private val recipes: ArrayList<Recipe>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = recipes[position]
+        binding.title.text = item.name
+    }
+    
+    fun dispatch(data: ArrayList<Recipe>) {
+        recipes.clear()
+        recipes.addAll(data)
+        notifyDataSetChanged()
     }
 
 }

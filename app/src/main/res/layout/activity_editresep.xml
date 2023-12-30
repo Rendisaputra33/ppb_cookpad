@@ -52,6 +52,7 @@
             android:textSize="22sp"
             android:fontFamily="@font/poppinsmedium"
             android:textColor="@color/secondaryColor"
+            android:layout_below="@id/img_foto"
             />
         <EditText
             android:id="@+id/edit_nama"
@@ -60,8 +61,10 @@
             android:layout_marginLeft="25dp"
             android:background="@drawable/button_shape"
             android:layout_marginTop="10dp"
+            android:layout_below="@id/txt_nama"
             />
         <TextView
+            android:layout_below="@id/edit_nama"
             android:id="@+id/txt_bahan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -73,6 +76,7 @@
             android:textColor="@color/secondaryColor"
             />
         <EditText
+            android:layout_below="@id/txt_bahan"
             android:id="@+id/edit_bahan"
             android:layout_width="325dp"
             android:layout_height="100dp"
@@ -83,6 +87,7 @@
             />
         <TextView
             android:id="@+id/txt_cara"
+            android:layout_below="@id/edit_bahan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cara Memasak"
@@ -94,6 +99,7 @@
             />
         <EditText
             android:id="@+id/edit_cara"
+            android:layout_below="@id/txt_cara"
             android:layout_width="325dp"
             android:layout_height="130dp"
             android:layout_marginLeft="25dp"
@@ -102,6 +108,7 @@
             />
         <Button
             android:id="@+id/edit"
+            android:layout_below="@id/edit_cara"
             android:layout_width="325dp"
             android:layout_height="50dp"
             android:layout_marginTop="15dp"

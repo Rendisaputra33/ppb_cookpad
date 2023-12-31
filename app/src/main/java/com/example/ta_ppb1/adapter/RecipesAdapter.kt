@@ -7,10 +7,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ta_ppb1.databinding.ItemListRecipeBinding
 import com.example.ta_ppb1.entity.RecipeWithAuthor
 
-class RecipesAdapter(private val recipes: ArrayList<RecipeWithAuthor>) :
+class RecipesAdapter(
+    private val recipes: ArrayList<RecipeWithAuthor>,
+    private val listener: Events
+) :
     RecyclerView.Adapter<RecipesAdapter.ViewHolder>() {
 
     private lateinit var binding: ItemListRecipeBinding
+
+    interface Events {
+        fun onClick(recipe: RecipeWithAuthor)
+    }
 
     inner class ViewHolder(private val binding: ItemListRecipeBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -31,6 +38,10 @@ class RecipesAdapter(private val recipes: ArrayList<RecipeWithAuthor>) :
         val item = recipes[position]
         binding.title.text = item.name
         binding.creator.text = item.authorName
+
+        binding.parentCard.setOnClickListener {
+            listener.onClick(item)
+        }
     }
 
     @SuppressLint("NotifyDataSetChanged")

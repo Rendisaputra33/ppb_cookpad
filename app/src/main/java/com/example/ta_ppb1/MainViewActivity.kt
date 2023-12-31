@@ -52,7 +52,14 @@ class MainViewActivity : AppCompatActivity() {
     }
 
     private fun registerEvents() {
-        recipeAdapter = RecipesAdapter(arrayListOf())
+        val intent = Intent(this, EditResep::class.java)
+
+        recipeAdapter = RecipesAdapter(arrayListOf(), object : RecipesAdapter.Events {
+            override fun onClick(recipe: RecipeWithAuthor) {
+                intent.putExtra("recipe_id", recipe.id)
+                startActivity(intent)
+            }
+        })
 
         binding.listContainer.apply {
             layoutManager = GridLayoutManager(binding.gridContainer.context, 2)

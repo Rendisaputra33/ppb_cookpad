@@ -2,6 +2,7 @@ package com.example.ta_ppb1
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.ta_ppb1.adapter.RecipesAdapter
@@ -49,7 +50,7 @@ class MainViewActivity : AppCompatActivity() {
         recipeAdapter = RecipesAdapter(arrayListOf())
 
         binding.listContainer.apply {
-            layoutManager = GridLayoutManager(applicationContext, 2)
+            layoutManager = GridLayoutManager(binding.gridContainer.context, 2)
             adapter = recipeAdapter
         }
 
@@ -57,5 +58,43 @@ class MainViewActivity : AppCompatActivity() {
             val intent = Intent(this, AddRecipe::class.java)
             startActivity(intent)
         }
+
+        binding.me.setOnClickListener {
+            val intent = Intent(this, MyRecipe::class.java)
+            startActivity(intent)
+        }
+
+        binding.searchInput.setOnFocusChangeListener { v, hasFocus ->
+            if (!hasFocus) {
+                val query = binding.searchInput.text.toString()
+
+                Log.i("info", query)
+
+                CoroutineScope(Dispatchers.IO).launch {
+                    val recipes: Array<Recipe> = if (query != "") {
+                        database.recipeRepository().getByQuery(query)
+                    } else {
+                        database.recipeRepository().getAll()
+                    }
+
+                    withContext(Dispatchers.Main) {
+                        recipeAdapter.dispatch(recipes.toCollection(ArrayList<Recipe>()))
+                    }
+                }
+            }
+        }
+
+//        binding.searchInput.doAfterTextChanged {
+//            val query = binding.searchInput.text.toString()
+//
+//            Log.i("info", query)
+//
+//            CoroutineScope(Dispatchers.IO).launch {
+//                val recipes = database.recipeRepository().getByQuery(query)
+//                withContext(Dispatchers.Main) {
+//                    recipeAdapter.dispatch(recipes.toCollection(ArrayList<Recipe>()))
+//                }
+//            }
+//        }
     }
 }

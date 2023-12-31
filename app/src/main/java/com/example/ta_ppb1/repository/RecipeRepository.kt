@@ -11,6 +11,9 @@ interface RecipeRepository {
     @Query("SELECT * FROM recipes")
     fun getAll(): Array<Recipe>
 
+    @Query("SELECT * FROM recipes WHERE name LIKE '%' || :query || '%'")
+    fun getByQuery(query: String): Array<Recipe>
+
     @Query("SELECT * FROM recipes WHERE id IN (:userIds)")
     fun loadAllByIds(userIds: IntArray): List<Recipe>
 

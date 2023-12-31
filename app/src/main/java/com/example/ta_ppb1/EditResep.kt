@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ta_ppb1.databinding.ActivityEditresepBinding
+import com.example.ta_ppb1.entity.Recipe
 import com.example.ta_ppb1.room.RoomDatabases
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -15,6 +16,9 @@ class EditResep : AppCompatActivity() {
     private lateinit var binding: ActivityEditresepBinding
 
     private val database by lazy { RoomDatabases(this) }
+
+    private lateinit var recipe: Recipe
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEditresepBinding.inflate(layoutInflater)
@@ -23,7 +27,7 @@ class EditResep : AppCompatActivity() {
         val id = intent.getIntExtra("recipe_id", 0)
 
         CoroutineScope(Dispatchers.IO).launch {
-            val recipe = database.recipeRepository().findById(id)
+            recipe = database.recipeRepository().findById(id)
 
             withContext(Dispatchers.Main) {
                 binding.editNama.setText(recipe.name)

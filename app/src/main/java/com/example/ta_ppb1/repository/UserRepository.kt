@@ -7,9 +7,12 @@ import com.example.ta_ppb1.entity.User
 
 @Dao
 interface UserRepository {
-    @Query("SELECT * FROM users WHERE email = :email")
-    suspend fun findByEmail(email: String): User
+    @Query("SELECT * FROM users")
+    suspend fun all(): Array<User>
+
+    @Query("SELECT * FROM users WHERE email = :email LIMIT 1")
+    suspend fun findByEmail(email: String): User?
 
     @Insert
-     suspend fun insert(data: User)
+    suspend fun insertAll(vararg users: User)
 }

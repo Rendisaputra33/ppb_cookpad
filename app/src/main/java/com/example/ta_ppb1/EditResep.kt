@@ -15,7 +15,6 @@ class EditResep : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.edit.setOnClickListener {
-
             val nama = binding.editNama.text.toString()
             val bahan = binding.editBahan.text.toString()
             val cara = binding.editCara.text.toString()

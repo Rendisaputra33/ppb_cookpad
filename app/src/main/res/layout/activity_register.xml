@@ -1,94 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:gravity="center"
-android:padding="15dp"
-android:background="@color/primaryColor"
-tools:context=".MainActivity">
-
-<LinearLayout
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:gravity="center"
-    android:orientation="vertical">
+    android:padding="15dp"
+    android:background="@color/primaryColor"
+    tools:context=".MainActivity">
 
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="180dp"
-        android:src="@drawable/gambar1"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="Dapur Kita"
-        android:textSize="30sp"
-        android:textColor="@color/secondaryColor"
-        android:padding="10dp"
-        />
-
-    <EditText
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:hint="Your Name"
-        android:drawableStart="@drawable/ic_user"
-        android:drawablePadding="12dp"
-        android:textSize="20sp"
-        android:textColor="@android:color/darker_gray"
-        android:textColorHint="@android:color/darker_gray"
-        android:background="@drawable/rounded_corner"
-        android:backgroundTint="@color/secondaryColor"
-        android:padding="18dp"
-        android:inputType="text"
-        android:id="@+id/Yourname_register"/>
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:hint="Username"
-        android:drawableStart="@drawable/ic_user"
-        android:drawablePadding="12dp"
-        android:textSize="20sp"
-        android:textColor="@android:color/darker_gray"
-        android:textColorHint="@android:color/darker_gray"
-        android:background="@drawable/rounded_corner"
-        android:backgroundTint="@color/secondaryColor"
-        android:padding="18dp"
-        android:inputType="text"
-        android:id="@+id/Username_register"/>
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="180dp"
+            android:src="@drawable/gambar1" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:hint="Password"
-        android:drawableStart="@drawable/ic_lock"
-        android:drawablePadding="12dp"
-        android:textSize="20sp"
-        android:textColor="@android:color/darker_gray"
-        android:textColorHint="@android:color/darker_gray"
-        android:background="@drawable/rounded_corner"
-        android:backgroundTint="@color/secondaryColor"
-        android:padding="18dp"
-        android:inputType="textPassword"
-        android:id="@+id/Password_register"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Dapur Kita"
+            android:textSize="30sp"
+            android:textColor="@color/secondaryColor"
+            android:padding="10dp" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:padding="18dp"
-        android:text="REGISTER"
-        android:backgroundTint="@color/secondaryColor"
-        android:background="@drawable/rounded_corner"
-        android:textColor="@color/black"
-        android:id="@+id/button_register"/>
-</LinearLayout>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:hint="Your Name"
+            android:drawableStart="@drawable/ic_user"
+            android:drawablePadding="12dp"
+            android:textSize="20sp"
+            android:textColor="@android:color/darker_gray"
+            android:textColorHint="@android:color/darker_gray"
+            android:background="@drawable/rounded_corner"
+            android:backgroundTint="@color/secondaryColor"
+            android:padding="18dp"
+            android:inputType="text"
+            android:id="@+id/Yourname_register" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:hint="Username"
+            android:drawableStart="@drawable/ic_user"
+            android:drawablePadding="12dp"
+            android:textSize="20sp"
+            android:textColor="@android:color/darker_gray"
+            android:textColorHint="@android:color/darker_gray"
+            android:background="@drawable/rounded_corner"
+            android:backgroundTint="@color/secondaryColor"
+            android:padding="18dp"
+            android:inputType="text"
+            android:id="@+id/Username_register" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:hint="Password"
+            android:drawableStart="@drawable/ic_lock"
+            android:drawablePadding="12dp"
+            android:textSize="20sp"
+            android:textColor="@android:color/darker_gray"
+            android:textColorHint="@android:color/darker_gray"
+            android:background="@drawable/rounded_corner"
+            android:backgroundTint="@color/secondaryColor"
+            android:padding="18dp"
+            android:inputType="textPassword"
+            android:id="@+id/Password_register" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="18dp"
+            android:text="REGISTER"
+            android:backgroundTint="@color/secondaryColor"
+            android:background="@drawable/rounded_corner"
+            android:textColor="@color/black"
+            android:id="@+id/button_register" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:text="already have an account?"
+            android:id="@+id/to_login" />
+    </LinearLayout>
 
 </RelativeLayout>

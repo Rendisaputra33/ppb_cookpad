@@ -5,24 +5,25 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import com.example.ta_ppb1.entity.Recipe
+import com.example.ta_ppb1.entity.RecipeWithAuthor
 
 @Dao
 interface RecipeRepository {
-    @Query("SELECT * FROM recipes")
-    fun getAll(): Array<Recipe>
+    @Query("SELECT * FROM recipe_author_view")
+    suspend fun getAll(): Array<RecipeWithAuthor>
 
-    @Query("SELECT * FROM recipes WHERE name LIKE '%' || :query || '%'")
-    fun getByQuery(query: String): Array<Recipe>
+    @Query("SELECT * FROM recipe_author_view WHERE name LIKE :query")
+    suspend fun getByQuery(query: String): Array<RecipeWithAuthor>
 
     @Query("SELECT * FROM recipes WHERE id IN (:userIds)")
-    fun loadAllByIds(userIds: IntArray): List<Recipe>
+    suspend fun loadAllByIds(userIds: IntArray): List<Recipe>
 
     @Query("SELECT * FROM recipes WHERE id LIKE :id LIMIT 1")
-    fun findById(id: Int): Recipe
+    suspend fun findById(id: Int): Recipe
 
     @Insert
-    fun insertAll(vararg users: Recipe)
+    suspend fun insertAll(vararg users: Recipe)
 
     @Delete
-    fun delete(user: Recipe)
+    suspend fun delete(user: Recipe)
 }

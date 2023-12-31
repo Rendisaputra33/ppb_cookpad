@@ -4,22 +4,28 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ta_ppb1.constant.General
 import com.example.ta_ppb1.databinding.ActivityTambahresepBinding
 import com.example.ta_ppb1.entity.Recipe
 import com.example.ta_ppb1.room.RoomDatabases
+import com.example.ta_ppb1.utils.storage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlin.properties.Delegates
 
 class AddRecipe : AppCompatActivity() {
     private lateinit var binding: ActivityTambahresepBinding
+    private var userId by Delegates.notNull<Int>()
 
-    val database by lazy { RoomDatabases(this) }
+    private val database by lazy { RoomDatabases(this) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTambahresepBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val id = storage<Int>().get(this, General.USER_ID, 1)
 
         binding.unggah.setOnClickListener {
 
@@ -28,14 +34,16 @@ class AddRecipe : AppCompatActivity() {
             val steps = binding.editCara.text.toString()
             val urlImage = binding.editFoto.text.toString()
 
-            val recipe = Recipe(1, title, "", condiment, steps, urlImage)
+            val recipe = id?.let { it1 -> Recipe(it1, title, "", condiment, steps, urlImage) }
 
             val parentObject = this
 
-            val intent = Intent(this, MainViewActivity::class.java)
+            val intent = Intent(parentObject, MainViewActivity::class.java)
 
             CoroutineScope(Dispatchers.IO).launch {
-                database.recipeRepository().insertAll(recipe)
+                if (recipe != null) {
+                    database.recipeRepository().insertAll(recipe)
+                }
                 
                 withContext(Dispatchers.Main) {
                     Toast.makeText(parentObject, "Success menambah resep", Toast.LENGTH_LONG).show()

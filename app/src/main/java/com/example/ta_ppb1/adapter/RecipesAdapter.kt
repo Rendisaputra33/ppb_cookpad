@@ -1,12 +1,13 @@
 package com.example.ta_ppb1.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ta_ppb1.databinding.ItemListRecipeBinding
-import com.example.ta_ppb1.entity.Recipe
+import com.example.ta_ppb1.entity.RecipeWithAuthor
 
-class RecipesAdapter(private val recipes: ArrayList<Recipe>) :
+class RecipesAdapter(private val recipes: ArrayList<RecipeWithAuthor>) :
     RecyclerView.Adapter<RecipesAdapter.ViewHolder>() {
 
     private lateinit var binding: ItemListRecipeBinding
@@ -29,9 +30,11 @@ class RecipesAdapter(private val recipes: ArrayList<Recipe>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = recipes[position]
         binding.title.text = item.name
+        binding.creator.text = item.authorName
     }
-    
-    fun dispatch(data: ArrayList<Recipe>) {
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun dispatch(data: ArrayList<RecipeWithAuthor>) {
         recipes.clear()
         recipes.addAll(data)
         notifyDataSetChanged()

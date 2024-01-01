@@ -8,7 +8,7 @@ import com.example.ta_ppb1.constant.General
 import com.example.ta_ppb1.databinding.ActivityTambahresepBinding
 import com.example.ta_ppb1.entity.Recipe
 import com.example.ta_ppb1.room.RoomDatabases
-import com.example.ta_ppb1.utils.storage
+import com.example.ta_ppb1.utils.Storage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -25,7 +25,7 @@ class AddRecipe : AppCompatActivity() {
         binding = ActivityTambahresepBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val id = storage<Int>().get(this, General.USER_ID, 1)
+        val id = Storage<Int>().get(this, General.USER_ID, 1)
 
         binding.unggah.setOnClickListener {
 

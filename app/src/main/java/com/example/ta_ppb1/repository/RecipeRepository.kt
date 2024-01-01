@@ -12,6 +12,9 @@ interface RecipeRepository {
     @Query("SELECT * FROM recipe_author_view")
     suspend fun getAll(): Array<RecipeWithAuthor>
 
+    @Query("SELECT * FROM recipe_author_view WHERE author = :author")
+    suspend fun getAllMyRecipe(author: Int): Array<RecipeWithAuthor>
+
     @Query("SELECT * FROM recipe_author_view WHERE name LIKE :query")
     suspend fun getByQuery(query: String): Array<RecipeWithAuthor>
 

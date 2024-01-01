@@ -3,7 +3,7 @@ package com.example.ta_ppb1.utils
 import android.content.Context
 import com.example.ta_ppb1.constant.General
 
-class storage<T> {
+class Storage<T> {
     fun save(ctx: Context, value: T) {
         val pref = ctx.getSharedPreferences(General.STORAGE_NAME, Context.MODE_PRIVATE)
 

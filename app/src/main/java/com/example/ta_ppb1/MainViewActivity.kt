@@ -57,7 +57,7 @@ class MainViewActivity : AppCompatActivity() {
         recipeAdapter = RecipesAdapter(arrayListOf(), object : RecipesAdapter.Events {
             override fun onClick(recipe: RecipeWithAuthor) {
                 intent.putExtra("recipe_id", recipe.id)
-                startActivity(intent)
+                startActivity(intent)  
             }
         })
 

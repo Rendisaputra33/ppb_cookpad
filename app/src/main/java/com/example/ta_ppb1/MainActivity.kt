@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ta_ppb1.databinding.ActivityMainBinding
 import com.example.ta_ppb1.room.RoomDatabases
-import com.example.ta_ppb1.utils.storage
+import com.example.ta_ppb1.utils.Storage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
                 val user = database.userRepository().findByEmail(username)
                 if (user?.password == password) {
                     withContext(Dispatchers.Main) {
-                        storage<Int>().save(parentObject, user.id)
+                        Storage<Int>().save(parentObject, user.id)
                         startActivity(intent)
                     }
                 } else {

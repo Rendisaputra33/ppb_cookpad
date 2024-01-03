@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 import com.example.ta_ppb1.entity.Recipe
 import com.example.ta_ppb1.entity.RecipeWithAuthor
 
@@ -29,4 +30,7 @@ interface RecipeRepository {
 
     @Delete
     suspend fun delete(user: Recipe)
+
+    @Update
+    suspend fun update(recipe: Recipe)
 }

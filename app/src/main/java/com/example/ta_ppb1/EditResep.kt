@@ -25,6 +25,7 @@ class EditResep : AppCompatActivity() {
         setContentView(binding.root)
 
         val id = intent.getIntExtra("recipe_id", 0)
+        val intent = Intent(this, MyRecipe::class.java)
 
         CoroutineScope(Dispatchers.IO).launch {
             recipe = database.recipeRepository().findById(id)
@@ -40,10 +41,20 @@ class EditResep : AppCompatActivity() {
             val nama = binding.editNama.text.toString()
             val bahan = binding.editBahan.text.toString()
             val cara = binding.editCara.text.toString()
+            val newRecipe =
+                Recipe(recipe.author, nama, recipe.description, bahan, cara, recipe.imageUrl)
+            newRecipe.id = recipe.id
+
+            CoroutineScope(Dispatchers.IO).launch {
+                database.recipeRepository().update(newRecipe)
+
+                withContext(Dispatchers.Main) {
+                    startActivity(intent)
+                }
+            }
         }
 
         binding.back.setOnClickListener {
-            val intent = Intent(this, MainViewActivity::class.java)
             startActivity(intent)
         }
     }

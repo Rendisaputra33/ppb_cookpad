@@ -2,7 +2,6 @@ package com.example.ta_ppb1
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ta_ppb1.databinding.ActivityMainBinding
@@ -31,14 +30,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        CoroutineScope(Dispatchers.IO).launch {
-            val users = database.userRepository().all()
-
-            users.map {
-                Log.i("user : ", "${it.id} - ${it.name}")
-            }
-        }
 
         binding.buttonLogin.setOnClickListener {
             val parentObject = this

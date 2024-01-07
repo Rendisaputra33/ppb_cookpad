@@ -2,6 +2,7 @@ package com.example.ta_ppb1
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ta_ppb1.adapter.MyRecipeAdapter
@@ -45,6 +46,7 @@ class MyRecipe : AppCompatActivity() {
 
     private fun setupAdapter() {
         val intentEdit = Intent(this, EditResep::class.java)
+        val parentObject = this
 
         adapterMyRecipe = MyRecipeAdapter(arrayListOf(), object : MyRecipeAdapter.Events {
             override fun onEdit(recipe: RecipeWithAuthor) {
@@ -65,15 +67,22 @@ class MyRecipe : AppCompatActivity() {
 
                 entity.id = recipe.id
 
-                CoroutineScope(Dispatchers.IO).launch {
-                    database.recipeRepository().delete(entity)
+                AlertDialog.Builder(parentObject)
+                    .setTitle("Yakin ingin menghapus data?")
+                    .setPositiveButton("Ya") { _, _ ->
+                        CoroutineScope(Dispatchers.IO).launch {
+                            database.recipeRepository().delete(entity)
 
-                    val recipes = database.recipeRepository().getAllMyRecipe(iduUser)
+                            val recipes = database.recipeRepository().getAllMyRecipe(iduUser)
 
-                    withContext(Dispatchers.Main) {
-                        adapterMyRecipe.dispatch(recipes.toCollection(ArrayList()))
-                    }
-                }
+                            withContext(Dispatchers.Main) {
+                                adapterMyRecipe.dispatch(recipes.toCollection(ArrayList()))
+                            }
+                        }
+                    }.setNegativeButton("Tidak") { _, _ ->
+
+                    }.create()
+                    .show()
             }
         })
 

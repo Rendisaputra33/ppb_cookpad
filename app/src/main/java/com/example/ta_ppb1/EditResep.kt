@@ -1,5 +1,6 @@
 package com.example.ta_ppb1
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +22,7 @@ class EditResep : AppCompatActivity() {
 
     private lateinit var recipe: Recipe
 
+    @SuppressLint("SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEditresepBinding.inflate(layoutInflater)

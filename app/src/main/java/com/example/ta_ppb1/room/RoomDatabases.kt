@@ -1,5 +1,6 @@
 package com.example.ta_ppb1.room
 
+import android.annotation.SuppressLint
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
@@ -14,6 +15,8 @@ import com.example.ta_ppb1.utils.ioThread
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.Calendar
 
 @Database(entities = [User::class, Recipe::class], views = [RecipeWithAuthor::class], version = 1)
 abstract class RoomDatabases : RoomDatabase() {
@@ -39,6 +42,7 @@ abstract class RoomDatabases : RoomDatabase() {
 
         private fun seed(context: Context): Callback {
             return object : Callback() {
+                @SuppressLint("SimpleDateFormat")
                 override fun onCreate(db: SupportSQLiteDatabase) {
                     super.onCreate(db)
                     ioThread {
@@ -46,12 +50,24 @@ abstract class RoomDatabases : RoomDatabase() {
                         val userRepository = invoke(context).userRepository()
 
                         CoroutineScope(Dispatchers.IO).launch {
+                            val time = Calendar.getInstance().time
+                            val formatter = SimpleDateFormat("dd-MM-yyyy")
+                            val current = formatter.format(time)
+
                             userRepository.insertAll(User("dapurkita", "dapurkita", "Dapur Kita"))
                             recipeRepository.insertAll(
-                                Recipe(2, "Nasi Padang Rendi", "", "hjdjhf", "jhsdhhdjs", "")
+                                Recipe(
+                                    2,
+                                    "Nasi Padang Rendi",
+                                    "",
+                                    "hjdjhf",
+                                    "jhsdhhdjs",
+                                    "",
+                                    current
+                                )
                             )
                             recipeRepository.insertAll(
-                                Recipe(2, "Nasi Padang @", "", "hjdjhf", "jhsdhhdjs", "")
+                                Recipe(2, "Nasi Padang @", "", "hjdjhf", "jhsdhhdjs", "", current)
                             )
                         }
                     }

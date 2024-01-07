@@ -18,6 +18,7 @@ data class RecipeWithAuthor(
     @ColumnInfo(name = "steps_cooking")
     val stepsCooking: String,
     @ColumnInfo(name = "image_url")
-    val imageUrl: String
+    val imageUrl: String,
+    val date: String
 ) {
 }

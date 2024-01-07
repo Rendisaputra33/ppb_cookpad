@@ -2,7 +2,6 @@ package com.example.ta_ppb1
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ta_ppb1.adapter.MyRecipeAdapter
@@ -60,14 +59,15 @@ class MyRecipe : AppCompatActivity() {
                     name = recipe.name,
                     condiment = recipe.condiment,
                     stepsCooking = recipe.stepsCooking,
-                    imageUrl = recipe.imageUrl
+                    imageUrl = recipe.imageUrl,
+                    date = recipe.date,
                 )
 
                 entity.id = recipe.id
 
                 CoroutineScope(Dispatchers.IO).launch {
                     database.recipeRepository().delete(entity)
-                    
+
                     val recipes = database.recipeRepository().getAllMyRecipe(iduUser)
 
                     withContext(Dispatchers.Main) {

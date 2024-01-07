@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.ta_ppb1.databinding.ItemListRecipeBinding
 import com.example.ta_ppb1.entity.RecipeWithAuthor
 
@@ -38,6 +39,10 @@ class RecipesAdapter(
         val item = recipes[position]
         binding.title.text = item.name
         binding.creator.text = item.authorName
+
+        if (item.imageUrl != "") {
+            binding.imageMakanan.load(item.imageUrl)
+        }
 
         binding.parentCard.setOnClickListener {
             listener.onClick(item)

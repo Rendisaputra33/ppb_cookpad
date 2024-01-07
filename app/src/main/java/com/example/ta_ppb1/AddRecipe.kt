@@ -1,5 +1,6 @@
 package com.example.ta_ppb1
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -13,6 +14,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.text.SimpleDateFormat
+import java.util.Calendar
 import kotlin.properties.Delegates
 
 class AddRecipe : AppCompatActivity() {
@@ -20,6 +23,8 @@ class AddRecipe : AppCompatActivity() {
     private var userId by Delegates.notNull<Int>()
 
     private val database by lazy { RoomDatabases(this) }
+
+    @SuppressLint("SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTambahresepBinding.inflate(layoutInflater)
@@ -33,8 +38,12 @@ class AddRecipe : AppCompatActivity() {
             val condiment = binding.editBahan.text.toString()
             val steps = binding.editCara.text.toString()
             val urlImage = binding.editFoto.text.toString()
+            val time = Calendar.getInstance().time
+            val formatter = SimpleDateFormat("dd-MM-yyyy")
+            val current = formatter.format(time)
 
-            val recipe = id?.let { it1 -> Recipe(it1, title, "", condiment, steps, urlImage) }
+            val recipe =
+                id?.let { it1 -> Recipe(it1, title, "", condiment, steps, urlImage, current) }
 
             val parentObject = this
 
@@ -44,7 +53,7 @@ class AddRecipe : AppCompatActivity() {
                 if (recipe != null) {
                     database.recipeRepository().insertAll(recipe)
                 }
-                
+
                 withContext(Dispatchers.Main) {
                     Toast.makeText(parentObject, "Success menambah resep", Toast.LENGTH_LONG).show()
                 }

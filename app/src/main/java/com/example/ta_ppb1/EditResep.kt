@@ -10,6 +10,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.text.SimpleDateFormat
+import java.util.Calendar
 
 class EditResep : AppCompatActivity() {
 
@@ -41,8 +43,20 @@ class EditResep : AppCompatActivity() {
             val nama = binding.editNama.text.toString()
             val bahan = binding.editBahan.text.toString()
             val cara = binding.editCara.text.toString()
+            val time = Calendar.getInstance().time
+            val formatter = SimpleDateFormat("dd-MM-yyyy")
+            val current = formatter.format(time)
+
             val newRecipe =
-                Recipe(recipe.author, nama, recipe.description, bahan, cara, recipe.imageUrl)
+                Recipe(
+                    recipe.author,
+                    nama,
+                    recipe.description,
+                    bahan,
+                    cara,
+                    recipe.imageUrl,
+                    current
+                )
             newRecipe.id = recipe.id
 
             CoroutineScope(Dispatchers.IO).launch {

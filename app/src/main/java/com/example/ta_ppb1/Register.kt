@@ -20,6 +20,20 @@ class Register : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+//        val id = Storage<Int>().get(this, General.USER_ID, 0)
+//
+//        Log.i("INDO : ", id.toString())
+//
+//        if (id != null && id > 0) {
+//            startActivity(Intent(this, MainViewActivity::class.java))
+//        } val id = Storage<Int>().get(this, General.USER_ID, 0)
+//
+//        Log.i("INDO : ", id.toString())
+//
+//        if (id != null && id > 0) {
+//            startActivity(Intent(this, MainViewActivity::class.java))
+//        }
+
         binding.buttonRegister.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             val username = binding.UsernameRegister.text.toString()

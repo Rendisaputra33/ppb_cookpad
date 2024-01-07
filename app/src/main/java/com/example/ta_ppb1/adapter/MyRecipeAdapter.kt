@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.ta_ppb1.databinding.ItemMyRecipeBinding
 import com.example.ta_ppb1.entity.RecipeWithAuthor
 
@@ -40,6 +41,10 @@ class MyRecipeAdapter(
         binding.judul.text = item.name
         binding.tanggal.text = item.authorName
 
+        if (item.imageUrl != "") {
+            binding.imgMakanan.load(item.imageUrl)
+        }
+        binding.bulan.text = item.date
         binding.btnEdit.setOnClickListener {
             listener.onEdit(item)
         }

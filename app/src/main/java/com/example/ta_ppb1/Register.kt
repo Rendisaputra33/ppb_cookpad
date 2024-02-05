@@ -38,6 +38,7 @@ class Register : AppCompatActivity() {
             val name = binding.YournameRegister.text.toString()
 
             CoroutineScope(Dispatchers.IO).launch {
+                // get user by username
                 val userExist = database.userRepository().findByEmail(username)
                 if (userExist == null) {
                     val user = User(username, password, name)
